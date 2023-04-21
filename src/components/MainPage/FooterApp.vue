@@ -1,6 +1,8 @@
 <template>
     <footer class="app-footer">
         <div class="app-footer__content">
+            <img class="app-footer__img-right" src="../../assets/images/lightning-r.png" alt="lightning">
+            <img class="app-footer__img-left" src="../../assets/images/lightning-l.png" alt="lightning">
             <div class="app-footer__description">Прохождение теста займет у вас не более <span class="text-yellow">12 минут</span>, а его <span class="text-bold">результаты</span> вы сможете <span class="text-yellow">использовать всю жизнь.</span>
             </div>
             <div class="app-footer__main-text">Профессиональная интерпретация и детально <span class="text-bold">проработанные рекомендации</span> позволят вам качественно <span class="text-bold">изменить все аспекты своей жизни</span>: от финансового до любовного.</div>
@@ -31,25 +33,26 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
-
-    &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("../../assets/images/lightning-l.png");
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        z-index: -1;
-    }
 
     &__content {
         padding: 10px 5px;
+        position: relative;
+    }
+
+    &__img-left {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        transform: rotate(-31.55deg);
+    }
+
+    &__img-right {
+        position: absolute;
+        top: 0;
+        right:  0;
+        z-index: 3;
+        transform: rotate(31.55deg);
     }
 
     &__description{
@@ -70,7 +73,7 @@ export default defineComponent({
         letter-spacing: 0.05em;
         margin: 20px 12px 33px;
         padding: 29px 15px 33px;
-
+        z-index: 5;
         background-color: fade-out(#f3f3f2, 0.2);
         border-radius: 1.25rem;
 
