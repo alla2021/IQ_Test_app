@@ -37,6 +37,8 @@ export default defineComponent({
     &__content {
         padding: 10px 5px;
         position: relative;
+        max-width: 300px;
+        margin: 0 auto;
     }
 
     &__img-left {
