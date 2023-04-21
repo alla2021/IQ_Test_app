@@ -1,0 +1,74 @@
+@use "./_fonts.scss" as *;
+@use "./_mixins" as *;
+
+ * {
+   box-sizing: border-box;
+ }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+main, header, footer {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  border: none;
+}
+
+.text-bold{
+  font-weight: bold;
+}
+
+.text-yellow{
+  color: #FFC700;
+}
+
+.text-strong{
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+}
+

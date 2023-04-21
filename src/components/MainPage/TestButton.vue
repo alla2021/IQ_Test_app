@@ -1,0 +1,65 @@
+<template>
+    <router-link to="/test" class="iq-test-button button button--test" @click="onClick">
+        <slot></slot>
+    </router-link>
+</template>
+<script>
+export default {
+    name: 'IQTestButton',
+    props: {
+        color: {
+            type: String,
+            default: '#FFC700'
+        },
+        hover: {
+            type: String,
+            default: ''
+        }
+    },
+    methods: {
+        onClick() {
+            this.$emit('click');
+        },
+    },
+    computed: {
+        colorClass() {
+            return `iq-test-button--${this.color}`;
+        },
+        hoverClass() {
+            return `iq-test-button--${this.hover}`;
+        }
+    }
+};
+</script>
+<style scoped lang="scss">
+
+.iq-test-button {
+    font-family: "Merriweather",sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 20px;
+    border: 0.0625rem solid #FFC700;
+    cursor: pointer;
+    padding: 12px 17px 11px;
+    width: 189px;
+    height: 41px;
+    background-color: #FFC700;
+    color: #0D0C11;
+    margin: 0 auto;
+
+    &__test{
+        background-color: inherit;
+        color: white;
+        border: 1px solid white;
+    }
+    &:disabled {
+        color: #8E8E8E;
+        background-color: #DADADA;
+        border-color: #8E8E8E;
+        box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+    }
+}
+
+</style>
