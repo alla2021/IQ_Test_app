@@ -1,16 +1,16 @@
 <template>
     <div class="result">
         <div class="result__container">
-            <img
-                    src="@/assets/images/lightning-r.png"
-                    alt="lightning"
-                    class="result__img-right"
-            />
-            <img
-                    src="@/assets/images/lightning-l.png"
-                    alt="lightning"
-                    class="result__img-left"
-            />
+<!--            <img-->
+<!--                    src="@/assets/images/lightning-r.png"-->
+<!--                    alt="lightning"-->
+<!--                    class="result__img-right"-->
+<!--            />-->
+<!--            <img-->
+<!--                    src="@/assets/images/lightning-l.png"-->
+<!--                    alt="lightning"-->
+<!--                    class="result__img-left"-->
+<!--            />-->
                 <h2 class="result__title">Ваш результат рассчитан:</h2>
                 <div class="result__description">
                     <span>Вы относитесь к 3%</span> респондентов, чей уровень интеллекта более чем
@@ -26,8 +26,7 @@
                     Звоните скорее, запись доступна всего
                     <span>{{ minutes }}:{{ seconds }}</span> минут
                 </div>
-                <button type="button" class="result__call" >
-                    <!--                    @click=""-->
+                <button type="button" class="result__call" @click="fetchData">
                     <img src="@/assets/images/icons/call.svg" alt="call">
                     <span>Позвонить и прослушать результат</span>
                 </button>
@@ -36,7 +35,15 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
+    props: {
+        results: {
+            type: Array,
+            required: true,
+        },
+    },
     data() {
         return {
             time: 600,
@@ -59,13 +66,22 @@ export default {
                 }
             }, 1000);
         },
+        async fetchData(){
+            console.log('click')
+            try {
+                const response = await axios.get('https://swapi.dev/api/people/1/');
+                console.log(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        }
     },
 };
 </script>
 
 <style scoped lang="scss">
 .result {
-    min-height: calc(100vh - 46px);
+    height: calc(100vh - 46px);
     background-image: url('../../assets/images/rain_bg.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -167,6 +183,11 @@ export default {
         display: flex;
         padding: 31px 15px 30px;
         border-radius: 5px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
+
 }
 </style>
