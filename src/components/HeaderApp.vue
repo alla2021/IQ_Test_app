@@ -12,9 +12,9 @@
                     <span class="close-line"></span>
                 </button>
                 <ul class="navbar__menu-items" :class="{ active: isOpen }">
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#info">Информация о тесте</a></li>
-                    <li><router-link to="/test">Пройти тест</router-link></li>
+                    <li><a href="#home" @click="scrollToSection">Главная</a></li>
+                    <li><a href="#info" @click="scrollToSection">Информация о тесте</a></li>
+                    <li><router-link to="/test" @click="scrollToSection">Пройти тест</router-link></li>
                 </ul>
             </div>
         </nav>
@@ -28,6 +28,17 @@ export default {
             isOpen: false,
         };
     },
+    methods: {
+        scrollToSection(event) {
+            this.isOpen = false;
+            event.preventDefault();
+            const section = document.querySelector(event.target.hash);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                history.replaceState(null, null, event.target.href.replace(event.target.hash, ''));
+            }
+        },
+    }
 };
 </script>
 
