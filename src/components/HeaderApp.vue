@@ -14,7 +14,7 @@
                 <ul class="navbar__menu-items" :class="{ active: isOpen }">
                     <li><a href="#home" @click="scrollToSection">Главная</a></li>
                     <li><a href="#info" @click="scrollToSection">Информация о тесте</a></li>
-                    <li><router-link to="/test" @click="scrollToSection">Пройти тест</router-link></li>
+                    <li><router-link to="/test" @click="isOpen = false">Пройти тест</router-link></li>
                 </ul>
             </div>
         </nav>
