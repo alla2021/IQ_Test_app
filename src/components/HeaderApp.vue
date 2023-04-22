@@ -12,8 +12,8 @@
                     <span class="close-line"></span>
                 </button>
                 <ul class="navbar__menu-items" :class="{ active: isOpen }">
-                    <li><a href="#home" @click="scrollToSection">Главная</a></li>
-                    <li><a href="#info" @click="scrollToSection">Информация о тесте</a></li>
+                    <li><router-link to="/" @click="scrollToSection">Главная</router-link></li>
+                    <li><router-link :to="{ path: '/', hash: '#info' }" @click="scrollToSection">Информация о тесте</router-link></li>
                     <li><router-link to="/test" @click="isOpen = false">Пройти тест</router-link></li>
                 </ul>
             </div>
@@ -30,16 +30,30 @@ export default {
     },
     methods: {
         scrollToSection(event) {
-            this.isOpen = false;
-            event.preventDefault();
-            const section = document.querySelector(event.target.hash);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                history.replaceState(null, null, event.target.href.replace(event.target.hash, ''));
+            const path = event.target.hash;
+            if (path && path.startsWith("#")) {
+                event.preventDefault();
+                this.isOpen = false;
+                const section = document.querySelector(path);
+                if (section) {
+                    section.scrollIntoView({ behavior: "smooth", block: "start" });
+                    history.replaceState(null, null, path);
+                } else if (this.$route.path === "/test") {
+                    this.$router.push({ path: "/" }).finally(() => {
+                        const targetSection = document.querySelector(path);
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                            history.replaceState(null, null, path);
+                        }
+                    });
+                }
+            } else {
+                this.isOpen = false;
             }
         },
+
     }
-};
+}
 </script>
 
 <style lang="scss">
