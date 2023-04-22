@@ -27,7 +27,7 @@ import ScrollLink from "@/components/MainPage/ScrollLink.vue";
         background-image: url('../../assets/images/intro-bg.png');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
+        background-position:center;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
