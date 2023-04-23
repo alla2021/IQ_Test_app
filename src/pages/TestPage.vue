@@ -10,21 +10,21 @@
                 </div>
                     <div class="task__options-wrapper">
                         <ul v-if="questions[currentQuestionIndex].type === 'text-task'" class="task__text-task">
-                            <li v-for="(answer, index) in answers" :key="index" class="task__item">
-                                <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer"  />
+                            <li v-for="(answer, index) in answers" :key="index" class="task__item" :class="{ 'active': selectedAnswer === answer.value }" @click="selectedAnswer = answer.value">
+                                <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer" />
                                 <label :for="'value-' + index" class="radio-label"></label>
                                 <label :for="'value-' + index">{{ answer.label }}</label>
                             </li>
                         </ul>
                         <ul v-if="questions[currentQuestionIndex].type === 'pick-image'" class="task__pick-image">
-                            <li v-for="(answer, index) in answers" :key="index" class="task__pick-number" :style="{ width: '44px', height: '41px' }">
+                            <li v-for="(answer, index) in answers" :key="index" :class="{ 'active': selectedAnswer === answer.value }" class="task__pick-number" :style="{ width: '44px', height: '41px' }">
                                 <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer" style="display: none;" />
                                 <label :for="'value-' + index" class="radio-label"></label>
                                 <label :for="'value-' + index" class="answer-label">{{ answer.label }}</label>
                             </li>
                         </ul>
                         <ul v-if="questions[currentQuestionIndex].type === 'pick-color'" class="task__color-picker">
-                            <li v-for="(answer, index) in answers" :key="index" class="task__color-box" :style="{ backgroundColor: answer.value, width: '75px', height: '75px' }">
+                            <li v-for="(answer, index) in answers" :key="index" :class="{ 'active': selectedAnswer === answer.value }" class="task__color-box" :style="{ backgroundColor: answer.value, width: '75px', height: '75px' }">
                                 <label :for="'value-' + index" class="radio-label">
                                     <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer" />
                                 </label>
@@ -177,16 +177,19 @@ export default {
         cursor: pointer;
     }
 
-    &__pick-number input[type="radio"]:checked + label {
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            border: 6px solid #FFC700;
-        }
+    //&__pick-number input[type="radio"]:checked + label {
+    //    &::before {
+    //        content: '';
+    //        position: absolute;
+    //        top: 0;
+    //        left: 0;
+    //        bottom: 0;
+    //        right: 0;
+    //        border: 6px solid #FFC700;
+    //    }
+    //}
+    &__pick-number.active {
+        border: 6px solid #FFC700;
     }
 
     //text-task
@@ -207,6 +210,10 @@ export default {
         label{
             padding-left: 27px;
         }
+    }
+
+    &__item.active {
+        background-color: #FFC700;
     }
 
     &__item input[type="radio"] {
@@ -244,6 +251,10 @@ export default {
         justify-content: center;
         align-items: center;
         cursor: pointer;
+    }
+
+    &__color-box.active {
+        border: 6px solid #FFC700;
     }
 }
 //button
