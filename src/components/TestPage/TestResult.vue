@@ -38,6 +38,7 @@ export default {
     },
     data() {
         return {
+            isData: null,
             time: 600,
             minutes: 10,
             seconds: 0,
@@ -173,10 +174,7 @@ export default {
         display: flex;
         padding: 31px 15px 30px;
         border-radius: 5px;
-
-        &:hover {
-            cursor: pointer;
-        }
     }
+
 }
 </style>
