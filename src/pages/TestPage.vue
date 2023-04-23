@@ -25,8 +25,10 @@
                         </ul>
                         <ul v-if="questions[currentQuestionIndex].type === 'pick-color'" class="task__color-picker">
                             <li v-for="(answer, index) in answers" :key="index" class="task__color-box" :style="{ backgroundColor: answer.value, width: '75px', height: '75px' }">
-                                <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer"  />
-                                <label :for="'value-' + index"></label>
+                                <label :for="'value-' + index" class="radio-label">
+                                    <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer" />
+                                </label>
+                                <label :for="'value-' + index" class="answer-label"></label>
                             </li>
                         </ul>
                     </div>
@@ -218,9 +220,34 @@ export default {
 
 //
     &__color-picker{
+        margin: 0 auto;
         display: flex;
         max-width: 320px;
         flex-wrap: wrap;
+    }
+
+    &__color-box{
+        margin: 10px;
+        width: 75px;
+        height: 75px;
+        position: relative;
+    }
+
+    &__color-box input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+    }
+
+    &__color-box label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
     }
 }
 

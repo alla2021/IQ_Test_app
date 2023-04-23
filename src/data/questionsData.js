@@ -1,14 +1,14 @@
 const questionsData = [
-    {
-        id: 0,
-        question: "Ваш пол:",
-        type:"text-task",
-        img: false,
-        answers: [
-            { value: "male", label: "Мужчина" },
-            { value: "female", label: "Женщина" },
-        ],
-    },
+    // {
+    //     id: 0,
+    //     question: "Ваш пол:",
+    //     type:"text-task",
+    //     img: false,
+    //     answers: [
+    //         { value: "male", label: "Мужчина" },
+    //         { value: "female", label: "Женщина" },
+    //     ],
+    // },
     // {
     //     id: 1,
     //     question: "Укажите ваш возраст:",
@@ -48,24 +48,23 @@ const questionsData = [
     //         { value: "77", label: "77" },
     //     ],
     // },
-
-    // {
-    //     id: 4,
-    //     question: "Выберите цвет, который сейчас наиболее вам приятен:",
-    //     type: "pick-color",
-    //     img: false,
-    //     answers: [
-    //         { value: "#A8A8A8" },
-    //         { value: "#0000A9" },
-    //         { value: "#00A701" },
-    //         { value: "#F60100" },
-    //         { value: "#FDFF19" },
-    //         { value: "#A95403" },
-    //         { value: "#000000" },
-    //         { value: "#850068" },
-    //         { value: "#46B2AC" },
-    //     ],
-    // },
+    {
+        id: 4,
+        question: "Выберите цвет, который сейчас наиболее вам приятен:",
+        type: "pick-color",
+        img: false,
+        answers: [
+            { value: "#A8A8A8" },
+            { value: "#0000A9" },
+            { value: "#00A701" },
+            { value: "#F60100" },
+            { value: "#FDFF19" },
+            { value: "#A95403" },
+            { value: "#000000" },
+            { value: "#850068" },
+            { value: "#46B2AC" },
+        ],
+    },
     // {
     //     id: 5,
     //     question: "Отдохните пару секунд, ещё раз выберите цвет, который сейчас наиболее вам приятен:",
