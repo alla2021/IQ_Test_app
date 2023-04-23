@@ -7,13 +7,27 @@
                 <div v-if="questions[currentQuestionIndex].img"  class="task__image-wrapper">
                     <img class="task__image" :src="require(`@/assets/images/test-img/${questions[currentQuestionIndex].imgSrc}`)" :alt="questions[currentQuestionIndex].imgSrc">
                 </div>
-                <ul :class="questionTypeClass">
+                <ul v-if="questions[currentQuestionIndex].type === 'text-task'" class="task__text-task">
                     <li v-for="(answer, index) in answers" :key="index" class="task__option">
                         <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer"  />
+                        <label :for="'value-' + index" class="radio-label"></label>
                         <label :for="'value-' + index">{{ answer.label }}</label>
                     </li>
                 </ul>
-            </div>
+                <ul v-if="questions[currentQuestionIndex].type === 'pick-image'" class="task__pick-image">
+                    <li v-for="(answer, index) in answers" :key="index" class="task__pick-number" :style="{ width: '44px', height: '41px' }">
+                        <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer" style="display: none;" />
+                        <label :for="'value-' + index" class="radio-label"></label>
+                        <label :for="'value-' + index" class="answer-label">{{ answer.label }}</label>
+                    </li>
+                </ul>
+                <ul v-if="questions[currentQuestionIndex].type === 'pick-color'" class="task__color-picker">
+                    <li v-for="(answer, index) in answers" :key="index" class="task__color-box" :style="{ backgroundColor: answer.value, width: '75px', height: '75px' }">
+                        <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer"  />
+                        <label :for="'value-' + index"></label>
+                    </li>
+                </ul>
+                </div>
             <button class="next-button" @click="nextQuestion" :disabled="isButtonDisabled">Далее</button>
         </section>
         <div v-if="isLoading">
@@ -61,14 +75,6 @@ export default {
         },
         allQuestionsAnswered() {
             return this.questions.every(question => question.userAnswer);
-        },
-        questionTypeClass() {
-            const questionType = this.questions[this.currentQuestionIndex].type;
-            return {
-                'type-text-task': questionType === 'text-task',
-                'type-pick-image': questionType === 'pick-image',
-                'type-pick-color': questionType === 'pick-color'
-            };
         },
     },
     methods: {
@@ -128,7 +134,64 @@ export default {
         font-size: 18px;
         padding: 15px 0;
     }
+
+    //pick-image
+    &__pick-image{
+        display: flex;
+        justify-content: center;
+        color: black;
+        font-size: 20px;
+        font-family: "PT Serif",sans-serif;
+    }
+
+    &__pick-number {
+        position: relative;
+        width: 44px;
+        height: 41px;
+        background-color: white;
+        border: none;
+        margin: 15px;
+    }
+
+    &__pick-number input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .task__pick-number label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .task__pick-number input[type="radio"]:checked + label {
+        background-color: white;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            bottom: 2px;
+            right: 2px;
+            border: 6px solid #FFC700;
+        }
+    }
+
+    //text-task
+
+    &__color-picker{
+        display: flex;
+        max-width: 320px;
+        flex-wrap: wrap;
+    }
 }
+
 .next-button {
     font-family: "Merriweather",sans-serif;
     font-weight: 700;
