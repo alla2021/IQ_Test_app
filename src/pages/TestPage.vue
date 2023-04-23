@@ -117,7 +117,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .task{
     height: calc(100vh - 46px);
     font-family: "PT Serif",sans-serif;
@@ -137,7 +137,6 @@ export default {
         line-height: 27px;
         margin: 36px auto;
         max-width: 275px;
-
     }
 
     &__options-wrapper{
@@ -156,8 +155,6 @@ export default {
 
     &__pick-number {
         position: relative;
-        width: 44px;
-        height: 41px;
         background-color: white;
         border: none;
         margin: 15px;
@@ -181,14 +178,13 @@ export default {
     }
 
     &__pick-number input[type="radio"]:checked + label {
-        background-color: white;
         &::before {
             content: '';
             position: absolute;
-            top: 2px;
-            left: 2px;
-            bottom: 2px;
-            right: 2px;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
             border: 6px solid #FFC700;
         }
     }
@@ -218,7 +214,7 @@ export default {
         height: 20px;
     }
 
-//
+//box-bg
     &__color-picker{
         margin: 0 auto;
         display: flex;
@@ -250,7 +246,7 @@ export default {
         cursor: pointer;
     }
 }
-
+//button
 .next-button {
     font-family: "Merriweather",sans-serif;
     font-weight: 700;
