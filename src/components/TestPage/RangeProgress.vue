@@ -27,21 +27,21 @@ export default {
 </script>
 
 <style scoped>
-.wrapper{
-    padding: 11px 31px;
+    .wrapper{
+        padding: 11px 31px;
 
-}
-.progress-bar {
-    height: 11px;
-    background-color: #979797;
-    border-radius: 10px;
-    overflow: hidden;
-}
+    }
+    .progress-bar {
+        height: 11px;
+        background-color: #979797;
+        border-radius: 10px;
+        overflow: hidden;
+    }
 
-.progress {
-    height: 100%;
-    background-color: #3bde7c;
-    border-radius: 10px;
-    transition: width 0.5s ease-in-out;
-}
+    .progress {
+        height: 100%;
+        background-color: #3bde7c;
+        border-radius: 10px;
+        transition: width 0.5s ease-in-out;
+    }
 </style>

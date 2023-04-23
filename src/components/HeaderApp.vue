@@ -39,6 +39,13 @@ export default {
             return this.$route.path === '/test';
         }
     },
+    async mounted() {
+        await this.$nextTick();
+        const testResultComponent = document.querySelector(".result");
+        if (testResultComponent) {
+            this.titleText = "Готово!";
+        }
+    },
     methods: {
         scrollToSection(event) {
             const path = event.target.hash;

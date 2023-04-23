@@ -17,10 +17,12 @@ import InfoBlock from "@/components/MainPage/InfoBlock.vue";
 
 export default {
     name: "MainPage",
-    components: {InfoBlock, BlockquoteBlock, IntroApp, AppHeader, AppFooter}
+    components: {
+        InfoBlock,
+        BlockquoteBlock,
+        IntroApp,
+        AppHeader,
+        AppFooter
+    }
 }
 </script>
-
-<style scoped>
-
-</style>

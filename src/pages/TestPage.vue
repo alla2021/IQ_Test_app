@@ -177,17 +177,6 @@ export default {
         cursor: pointer;
     }
 
-    //&__pick-number input[type="radio"]:checked + label {
-    //    &::before {
-    //        content: '';
-    //        position: absolute;
-    //        top: 0;
-    //        left: 0;
-    //        bottom: 0;
-    //        right: 0;
-    //        border: 6px solid #FFC700;
-    //    }
-    //}
     &__pick-number.active {
         border: 6px solid #FFC700;
     }

@@ -1,16 +1,8 @@
 <template>
     <div class="result">
         <div class="result__container">
-            <img
-                    src="@/assets/images/lightning-r.png"
-                    alt="lightning"
-                    class="result__img-right"
-            />
-            <img
-                    src="@/assets/images/lightning-l.png"
-                    alt="lightning"
-                    class="result__img-left"
-            />
+            <img src="@/assets/images/lightning-r.png" alt="lightning" class="result__img-right"/>
+            <img src="@/assets/images/lightning-l.png" alt="lightning" class="result__img-left"/>
                 <h2 class="result__title">Ваш результат рассчитан:</h2>
                 <div class="result__description">
                     <span>Вы относитесь к 3%</span> респондентов, чей уровень интеллекта более чем
@@ -95,10 +87,6 @@ export default {
     z-index:-3;
     position: relative;
     overflow: hidden;
-
-    &__container{
-
-    }
 
     &__img-left {
       position: absolute;
