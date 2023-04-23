@@ -1,16 +1,16 @@
 <template>
     <div class="result">
         <div class="result__container">
-<!--            <img-->
-<!--                    src="@/assets/images/lightning-r.png"-->
-<!--                    alt="lightning"-->
-<!--                    class="result__img-right"-->
-<!--            />-->
-<!--            <img-->
-<!--                    src="@/assets/images/lightning-l.png"-->
-<!--                    alt="lightning"-->
-<!--                    class="result__img-left"-->
-<!--            />-->
+            <img
+                    src="@/assets/images/lightning-r.png"
+                    alt="lightning"
+                    class="result__img-right"
+            />
+            <img
+                    src="@/assets/images/lightning-l.png"
+                    alt="lightning"
+                    class="result__img-left"
+            />
                 <h2 class="result__title">Ваш результат рассчитан:</h2>
                 <div class="result__description">
                     <span>Вы относитесь к 3%</span> респондентов, чей уровень интеллекта более чем
@@ -92,25 +92,27 @@ export default {
     color: #fff;
     font-family: "PT Serif", sans-serif;
     width: 100%;
-    z-index: -2;
+    z-index:-3;
+    position: relative;
+    overflow: hidden;
 
     &__container{
-        position: relative;
+
     }
 
     &__img-left {
-        position: absolute;
-        bottom: -60px;
-        left: -100px;
-        transform: rotate(-53.15deg);
+      position: absolute;
+        bottom: 130px;
+        left: -20px;
+        transform: rotate(-30.15deg);
         z-index: -1;
     }
 
     &__img-right {
         position: absolute;
-        bottom: -50px;
-        right:  -60px;
-        transform: rotate(53.15deg);
+        bottom: 120px;
+        right:  -30px;
+        transform: rotate(30.15deg);
         z-index: -1;
     }
 

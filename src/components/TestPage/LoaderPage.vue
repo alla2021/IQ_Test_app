@@ -35,6 +35,8 @@ export default {
     &__subtitle{
         font-size: 14px;
         line-height: 18px;
+        max-width: 276px;
+        margin: 0 auto;
     }
 }
 .loader {
