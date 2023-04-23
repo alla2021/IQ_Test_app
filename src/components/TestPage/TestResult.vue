@@ -22,23 +22,33 @@
                 <img src="@/assets/images/icons/call.svg" alt="call">
                 <span>Позвонить и прослушать результат</span>
             </button>
+            <div v-if="showData">
+                <RenderData :fetchedData="fetchedData" />
+            </div>
         </div>
     </div>
 </template>
+
 <script>
-
+import RenderData from "@/components/TestPage/RenderData.vue";
 export default {
-    components: {
-
+    name: "TestResult",
+    components:{
+        RenderData
     },
     props: {
         results: {
             type: Array,
             required: true,
         },
+        fetchedData: {
+            type: Object,
+            required: true
+        }
     },
     data() {
         return {
+            showData: false,
             isData: null,
             time: 600,
             minutes: 10,
@@ -59,6 +69,11 @@ export default {
                     clearInterval(this.timer);
                 }
             }, 1000);
+        },
+        renderData() {
+            console.log('ccclick')
+            this.showData = true;
+            this.fetchData();
         },
     },
 };

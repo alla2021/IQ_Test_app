@@ -39,7 +39,7 @@
             <LoaderPage />
         </div>
         <div v-if="showResult && !isLoading">
-            <TestResult :results="results" />
+            <TestResult :results="results" :fetchedData="[fetchedData]" />
         </div>
     </main>
     <div v-if="showResult && !isLoading">
@@ -65,7 +65,7 @@ export default {
             questions: questionsData,
             isLoading:false,
             showResult:false,
-            fetchResults: [],
+            fetchedData: [],
         };
     },
     components: {
@@ -126,7 +126,8 @@ export default {
         fetchData: async function () {
             try {
                 const response = await axios.get('https://swapi.dev/api/people/1/');
-                console.log(response.data);
+                this.fetchedData = response.data;
+                console.log(this.fetchedData);
             } catch (error) {
                 console.error(error);
             }
