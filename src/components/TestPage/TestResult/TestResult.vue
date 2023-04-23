@@ -18,25 +18,23 @@
                 Звоните скорее, запись доступна всего
                 <span>{{ minutes }}:{{ seconds }}</span> минут
             </div>
-            <div class="result__call" @click="viewData">
+            <div v-if="showButton" class="result__call" @click="viewData">
                 <img src="../../../assets/images/icons/call.svg" alt="call">
                 <span>Позвонить и прослушать результат</span>
             </div>
             <div v-if="fetchedData && showData">
-                <RenderData :fetchedData="fetchedData" />
+                <RenderData v-if="fetchedData" :fetchedData="fetchedData" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import RenderData from "@/components/TestPage/RenderData.vue";
 import axios from "axios";
+import RenderData from "@/components/TestPage/RenderData.vue";
 export default {
     name: "TestResult",
-    components:{
-        RenderData
-    },
+    components: {RenderData},
     props: {
         results: {
             type: Array,
@@ -46,7 +44,8 @@ export default {
     data() {
         return {
             showData: false,
-            fetchedData: {},
+            showButton: true,
+            fetchedData: null,
             storageData: null,
             time: 600,
             minutes: 10,
@@ -85,6 +84,6 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
     @import "@/components/TestPage/TestResult/test-result.scss";
 </style>
