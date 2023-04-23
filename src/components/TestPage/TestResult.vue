@@ -3,33 +3,34 @@
         <div class="result__container">
             <img src="@/assets/images/lightning-r.png" alt="lightning" class="result__img-right"/>
             <img src="@/assets/images/lightning-l.png" alt="lightning" class="result__img-left"/>
-                <h2 class="result__title">Ваш результат рассчитан:</h2>
-                <div class="result__description">
-                    <span>Вы относитесь к 3%</span> респондентов, чей уровень интеллекта более чем
-                    на 15 пунктов отличается от среднего в большую или меньшую сторону!
-                </div>
-                <p class="result__subtitle">Скорее получите свой результат!</p>
-                <div class="result__block">
-                    В целях защиты персональных данных результат теста, их подробная
-                    интерпретация и рекомендации доступны в виде голосового сообщения по
-                    звонку с вашего мобильного телефона
-                </div>
-                <div class="result__timer">
-                    Звоните скорее, запись доступна всего
-                    <span>{{ minutes }}:{{ seconds }}</span> минут
-                </div>
-                <button type="button" class="result__call" @click="fetchData">
-                    <img src="@/assets/images/icons/call.svg" alt="call">
-                    <span>Позвонить и прослушать результат</span>
-                </button>
+            <h2 class="result__title">Ваш результат рассчитан:</h2>
+            <div class="result__description">
+                <span>Вы относитесь к 3%</span> респондентов, чей уровень интеллекта более чем
+                на 15 пунктов отличается от среднего в большую или меньшую сторону!
             </div>
+            <p class="result__subtitle">Скорее получите свой результат!</p>
+            <div class="result__block">
+                В целях защиты персональных данных результат теста, их подробная
+                интерпретация и рекомендации доступны в виде голосового сообщения по
+                звонку с вашего мобильного телефона
+            </div>
+            <div class="result__timer">
+                Звоните скорее, запись доступна всего
+                <span>{{ minutes }}:{{ seconds }}</span> минут
+            </div>
+            <button type="button" class="result__call" @click="renderData">
+                <img src="@/assets/images/icons/call.svg" alt="call">
+                <span>Позвонить и прослушать результат</span>
+            </button>
         </div>
+    </div>
 </template>
-
 <script>
-import axios from "axios";
 
 export default {
+    components: {
+
+    },
     props: {
         results: {
             type: Array,
@@ -59,15 +60,6 @@ export default {
                 }
             }, 1000);
         },
-        async fetchData(){
-            console.log('click')
-            try {
-                const response = await axios.get('https://swapi.dev/api/people/1/');
-                console.log(response.data);
-            } catch (error) {
-                console.error(error);
-            }
-        }
     },
 };
 </script>

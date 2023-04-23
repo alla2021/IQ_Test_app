@@ -54,6 +54,7 @@ import LoaderPage from "@/components/TestPage/LoaderPage.vue";
 import TestResult from "@/components/TestPage/TestResult.vue";
 import RangeProgress from "@/components/TestPage/RangeProgress.vue";
 import FooterTestPage from "@/components/TestPage/FooterTestPage.vue";
+import axios from "axios";
 
 export default {
     data() {
@@ -64,6 +65,7 @@ export default {
             questions: questionsData,
             isLoading:false,
             showResult:false,
+            fetchResults: [],
         };
     },
     components: {
@@ -86,6 +88,9 @@ export default {
         allQuestionsAnswered() {
             return this.questions.every(question => question.userAnswer);
         },
+    },
+    mounted() {
+        this.fetchData();
     },
     methods: {
         nextQuestion() {
@@ -116,6 +121,14 @@ export default {
                     this.isLoading = false;
                     this.showResult = true;
                 }, 5000);
+            }
+        },
+        fetchData: async function () {
+            try {
+                const response = await axios.get('https://swapi.dev/api/people/1/');
+                console.log(response.data);
+            } catch (error) {
+                console.error(error);
             }
         }
     },
