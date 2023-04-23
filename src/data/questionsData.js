@@ -1,14 +1,14 @@
 const questionsData = [
-    // {
-    //     id: 0,
-    //     question: "Ваш пол:",
-    //     type:"text-task",
-    //     img: false,
-    //     answers: [
-    //         { value: "male", label: "Мужчина" },
-    //         { value: "female", label: "Женщина" },
-    //     ],
-    // },
+    {
+        id: 0,
+        question: "Ваш пол:",
+        type:"text-task",
+        img: false,
+        answers: [
+            { value: "male", label: "Мужчина" },
+            { value: "female", label: "Женщина" },
+        ],
+    },
     // {
     //     id: 1,
     //     question: "Укажите ваш возраст:",

@@ -16,6 +16,10 @@
                     <li><router-link :to="{ path: '/', hash: '#info' }" @click="scrollToSection">Информация о тесте</router-link></li>
                     <li><router-link to="/test" @click="isOpen = false">Пройти тест</router-link></li>
                 </ul>
+                <div v-if="isTestPage && !isOpen" class="logo-container">
+                    <img src="../assets/images/logo.png" alt="Logo">
+                    <h2>{{ titleText }}</h2>
+                </div>
             </div>
         </nav>
     </header>
@@ -26,7 +30,14 @@ export default {
     data() {
         return {
             isOpen: false,
+            titleText: "Тест на определение IQ",
+            isTestResult:false,
         };
+    },
+    computed: {
+        isTestPage() {
+            return this.$route.path === '/test';
+        }
     },
     methods: {
         scrollToSection(event) {
@@ -51,7 +62,6 @@ export default {
                 this.isOpen = false;
             }
         },
-
     }
 }
 </script>
@@ -135,6 +145,24 @@ export default {
 
         &.active {
             display: none;
+        }
+    }
+    .logo-container{
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+        h2 {
+            padding: 0 15px;
+            text-transform: uppercase;
+            color: #FFC700;
+            font-family: "Yeseva One",sans-serif;
+            font-size: 12px;
+            line-height: 14px;
+            letter-spacing: 0.05em;
+        }
+        img{
+            width: 48px;
+            height: 47px;
         }
     }
 

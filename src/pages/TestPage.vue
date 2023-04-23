@@ -4,29 +4,32 @@
         <section v-if="!isLoading && !showResult" class="task">
             <RangeProgress :progress="currentQuestionIndex + 1" :maxProgress="questions.length" />
             <div class="task__wrapper">
+                <h3 class="task__title">{{ questions[currentQuestionIndex].question }}</h3>
                 <div v-if="questions[currentQuestionIndex].img"  class="task__image-wrapper">
                     <img class="task__image" :src="require(`@/assets/images/test-img/${questions[currentQuestionIndex].imgSrc}`)" :alt="questions[currentQuestionIndex].imgSrc">
                 </div>
-                <ul v-if="questions[currentQuestionIndex].type === 'text-task'" class="task__text-task">
-                    <li v-for="(answer, index) in answers" :key="index" class="task__option">
-                        <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer"  />
-                        <label :for="'value-' + index" class="radio-label"></label>
-                        <label :for="'value-' + index">{{ answer.label }}</label>
-                    </li>
-                </ul>
-                <ul v-if="questions[currentQuestionIndex].type === 'pick-image'" class="task__pick-image">
-                    <li v-for="(answer, index) in answers" :key="index" class="task__pick-number" :style="{ width: '44px', height: '41px' }">
-                        <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer" style="display: none;" />
-                        <label :for="'value-' + index" class="radio-label"></label>
-                        <label :for="'value-' + index" class="answer-label">{{ answer.label }}</label>
-                    </li>
-                </ul>
-                <ul v-if="questions[currentQuestionIndex].type === 'pick-color'" class="task__color-picker">
-                    <li v-for="(answer, index) in answers" :key="index" class="task__color-box" :style="{ backgroundColor: answer.value, width: '75px', height: '75px' }">
-                        <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer"  />
-                        <label :for="'value-' + index"></label>
-                    </li>
-                </ul>
+                    <div class="task__options-wrapper">
+                        <ul v-if="questions[currentQuestionIndex].type === 'text-task'" class="task__text-task">
+                            <li v-for="(answer, index) in answers" :key="index" class="task__item">
+                                <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer"  />
+                                <label :for="'value-' + index" class="radio-label"></label>
+                                <label :for="'value-' + index">{{ answer.label }}</label>
+                            </li>
+                        </ul>
+                        <ul v-if="questions[currentQuestionIndex].type === 'pick-image'" class="task__pick-image">
+                            <li v-for="(answer, index) in answers" :key="index" class="task__pick-number" :style="{ width: '44px', height: '41px' }">
+                                <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer" style="display: none;" />
+                                <label :for="'value-' + index" class="radio-label"></label>
+                                <label :for="'value-' + index" class="answer-label">{{ answer.label }}</label>
+                            </li>
+                        </ul>
+                        <ul v-if="questions[currentQuestionIndex].type === 'pick-color'" class="task__color-picker">
+                            <li v-for="(answer, index) in answers" :key="index" class="task__color-box" :style="{ backgroundColor: answer.value, width: '75px', height: '75px' }">
+                                <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer"  />
+                                <label :for="'value-' + index"></label>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             <button class="next-button" @click="nextQuestion" :disabled="isButtonDisabled">Далее</button>
         </section>
@@ -123,14 +126,19 @@ export default {
     background-size: cover;
     background-position:center;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &__title{
         font-size: 20px;
         line-height: 27px;
         margin: 36px auto;
+        max-width: 275px;
+
     }
 
-    &__option{
+    &__options-wrapper{
         font-size: 18px;
         padding: 15px 0;
     }
@@ -158,7 +166,7 @@ export default {
         opacity: 0;
     }
 
-    .task__pick-number label {
+    &__pick-number label {
         position: absolute;
         top: 0;
         left: 0;
@@ -170,7 +178,7 @@ export default {
         cursor: pointer;
     }
 
-    .task__pick-number input[type="radio"]:checked + label {
+    &__pick-number input[type="radio"]:checked + label {
         background-color: white;
         &::before {
             content: '';
@@ -184,7 +192,31 @@ export default {
     }
 
     //text-task
+    &__text-task{
+        font-family: "PT Serif",sans-serif;
+        font-size: 18px;
+        letter-spacing: 0.05em;
+        text-align: start;
+    }
 
+    &__item{
+        background-color: rgba(242, 243, 243, 0.3);
+        margin: 5px 0;
+        padding: 10px 35px;
+        display: flex;
+        align-items: center;
+
+        label{
+            padding-left: 27px;
+        }
+    }
+
+    &__item input[type="radio"] {
+        width: 20px;
+        height: 20px;
+    }
+
+//
     &__color-picker{
         display: flex;
         max-width: 320px;
@@ -206,7 +238,7 @@ export default {
     height: 41px;
     background-color: #FFC700;
     color: #0D0C11;
-    margin: 0 auto;
+    margin: 21px auto;
 
     &:disabled {
         color: #8E8E8E;

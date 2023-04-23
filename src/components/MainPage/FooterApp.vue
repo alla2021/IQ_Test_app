@@ -78,7 +78,6 @@ export default defineComponent({
         z-index: 5;
         background-color: fade-out(#f3f3f2, 0.2);
         border-radius: 1.25rem;
-
     }
 
     &__copyright {
