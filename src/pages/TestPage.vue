@@ -1,6 +1,6 @@
 <template>
     <HeaderApp />
-    <main>
+    <main >
         <section v-if="!isLoading && !showResult" class="task">
             <RangeProgress :progress="currentQuestionIndex + 1" :maxProgress="questions.length" />
             <div class="task__wrapper">
@@ -42,6 +42,9 @@
             <TestResult :results="results" />
         </div>
     </main>
+    <div v-if="showResult && !isLoading">
+        <FooterTestPage/>
+    </div>
 </template>
 
 <script>
@@ -50,6 +53,7 @@ import HeaderApp from "@/components/HeaderApp.vue";
 import LoaderPage from "@/components/TestPage/LoaderPage.vue";
 import TestResult from "@/components/TestPage/TestResult.vue";
 import RangeProgress from "@/components/TestPage/RangeProgress.vue";
+import FooterTestPage from "@/components/TestPage/FooterTestPage.vue";
 
 export default {
     data() {
@@ -63,6 +67,7 @@ export default {
         };
     },
     components: {
+        FooterTestPage,
         TestResult,
         LoaderPage,
         HeaderApp,

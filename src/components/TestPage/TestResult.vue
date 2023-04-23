@@ -74,7 +74,7 @@ export default {
 
 <style scoped lang="scss">
 .result {
-    height: calc(100vh - 46px);
+    height: calc(100vh - 46px - 30px);
     background-image: url('../../assets/images/rain_bg.png');
     background-repeat: no-repeat;
     background-size: cover;
