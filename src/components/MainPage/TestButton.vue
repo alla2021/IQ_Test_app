@@ -21,14 +21,6 @@ export default {
             this.$emit('click');
         },
     },
-    computed: {
-        colorClass() {
-            return `iq-test-button--${this.color}`;
-        },
-        hoverClass() {
-            return `iq-test-button--${this.hover}`;
-        }
-    }
 };
 </script>
 <style scoped lang="scss">

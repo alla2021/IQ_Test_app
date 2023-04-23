@@ -18,37 +18,36 @@
                 Звоните скорее, запись доступна всего
                 <span>{{ minutes }}:{{ seconds }}</span> минут
             </div>
-            <button type="button" class="result__call" @click="renderData">
+            <button type="button" class="result__call" @click="viewData">
                 <img src="@/assets/images/icons/call.svg" alt="call">
                 <span>Позвонить и прослушать результат</span>
             </button>
             <div v-if="showData">
-                <RenderData :fetchedData="fetchedData" />
+                <h2>Hi</h2>
+<!--                <RenderData :fetchedData="fetchedData" />-->
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import RenderData from "@/components/TestPage/RenderData.vue";
+// import RenderData from "@/components/TestPage/RenderData.vue";
+import axios from "axios";
 export default {
     name: "TestResult",
     components:{
-        RenderData
+        // RenderData
     },
     props: {
         results: {
             type: Array,
             required: true,
         },
-        fetchedData: {
-            type: Object,
-            required: true
-        }
     },
     data() {
         return {
             showData: false,
+            fetchedData: null,
             isData: null,
             time: 600,
             minutes: 10,
@@ -58,8 +57,19 @@ export default {
     },
     mounted() {
         this.startTimer();
+        this.fetchData();
     },
+
     methods: {
+        fetchData: async function () {
+            try {
+                const response = await axios.get('https://swapi.dev/api/people/1/');
+                this.fetchedData = response.data;
+                console.log(this.fetchedData);
+            } catch (error) {
+                console.error(error);
+            }
+        },
         startTimer() {
             this.timer = setInterval(() => {
                 this.time--;
@@ -70,7 +80,7 @@ export default {
                 }
             }, 1000);
         },
-        renderData() {
+        viewData() {
             console.log('ccclick')
             this.showData = true;
             this.fetchData();

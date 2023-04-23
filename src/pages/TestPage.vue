@@ -39,7 +39,7 @@
             <LoaderPage />
         </div>
         <div v-if="showResult && !isLoading">
-            <TestResult :results="results" :fetchedData="[fetchedData]" />
+            <TestResult :results="results" />
         </div>
     </main>
     <div v-if="showResult && !isLoading">
@@ -54,7 +54,6 @@ import LoaderPage from "@/components/TestPage/LoaderPage.vue";
 import TestResult from "@/components/TestPage/TestResult.vue";
 import RangeProgress from "@/components/TestPage/RangeProgress.vue";
 import FooterTestPage from "@/components/TestPage/FooterTestPage.vue";
-import axios from "axios";
 
 export default {
     data() {
@@ -89,9 +88,6 @@ export default {
             return this.questions.every(question => question.userAnswer);
         },
     },
-    mounted() {
-        this.fetchData();
-    },
     methods: {
         nextQuestion() {
             this.saveSelectedAnswer();
@@ -123,15 +119,6 @@ export default {
                 }, 5000);
             }
         },
-        fetchData: async function () {
-            try {
-                const response = await axios.get('https://swapi.dev/api/people/1/');
-                this.fetchedData = response.data;
-                console.log(this.fetchedData);
-            } catch (error) {
-                console.error(error);
-            }
-        }
     },
 };
 </script>
