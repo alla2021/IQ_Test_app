@@ -3,9 +3,11 @@
     <main>
         <section v-if="!isLoading && !showResult" class="task">
             <RangeProgress :progress="currentQuestionIndex + 1" :maxProgress="questions.length" />
-            <div>
-                <h3 class="task__title">{{ questions[currentQuestionIndex].question }}</h3>
-                <ul>
+            <div class="task__wrapper">
+                <div v-if="questions[currentQuestionIndex].img"  class="task__image-wrapper">
+                    <img class="task__image" :src="require(`@/assets/images/test-img/${questions[currentQuestionIndex].imgSrc}`)" :alt="questions[currentQuestionIndex].imgSrc">
+                </div>
+                <ul :class="questionTypeClass">
                     <li v-for="(answer, index) in answers" :key="index" class="task__option">
                         <input type="radio" :id="'value-' + index" :value="answer.value" v-model="selectedAnswer"  />
                         <label :for="'value-' + index">{{ answer.label }}</label>
@@ -59,6 +61,14 @@ export default {
         },
         allQuestionsAnswered() {
             return this.questions.every(question => question.userAnswer);
+        },
+        questionTypeClass() {
+            const questionType = this.questions[this.currentQuestionIndex].type;
+            return {
+                'type-text-task': questionType === 'text-task',
+                'type-pick-image': questionType === 'pick-image',
+                'type-pick-color': questionType === 'pick-color'
+            };
         },
     },
     methods: {
