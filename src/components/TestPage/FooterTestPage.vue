@@ -24,6 +24,5 @@ export default {
         text-align: center;
         background-color: #0D0C11;
         color: rgba(255, 255, 255, 0.5);
-
     }
 </style>

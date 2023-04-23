@@ -1,7 +1,7 @@
 <template>
     <a :href="`#${to}`" @click.prevent="scrollTo" class="scroll">
         <slot></slot>
-        <img src="../../assets/images/icons/arrow-scroll.svg" alt="Scroll arrow" class="scroll__img" />
+        <img src="../../../assets/images/icons/arrow-scroll.svg" alt="Scroll arrow" class="scroll__img" />
         <div class="scroll__text">{{ text }}</div>
     </a>
 </template>
@@ -33,8 +33,10 @@ export default {
             const targetEl = document.getElementById(this.to);
 
             if (targetEl) {
-                const top = targetEl.getBoundingClientRect().top + window.pageYOffset - this.offset;
-                window.scrollTo({ top, behavior: 'smooth' });
+                window.scrollTo({
+                    top: targetEl.getBoundingClientRect().top + window.pageYOffset - this.offset,
+                    behavior: 'smooth'
+                });
             }
 
             this.isActive = true;
@@ -60,17 +62,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
- .scroll{
-     padding-bottom: 11px;
-     &__text {
-         font-size: 8px;
-         line-height: 11px;
-         letter-spacing: 0.05em;
-         color: #FFFFFF;
-     }
-     &__img {
-         width: 16px;
-         height: 16px;
-     }
- }
+@import "@/components/MainPage/ScrollLink/scroll-link.scss";
 </style>

@@ -1,0 +1,15 @@
+.info-block {
+  min-height: 510px;
+  display: flex;
+  align-items: center;
+  font-family: "PT Serif", sans-serif;
+
+  &__wrapper {
+    margin: 0 auto;
+    width: 298px;
+  }
+
+  &__text {
+    padding: 38px 11px;
+  }
+}
