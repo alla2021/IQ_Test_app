@@ -1,11 +1,7 @@
 <template>
-    <ul>
+    <ul class="row">
         <li v-for="(data, index) in fetchedData" :key="index">
-            <p>Height: {{ data.height }}</p>
-<!--            <p>Mass: {{ data.mass }}</p>-->
-<!--            <p>Hair color: {{ data.hair_color }}</p>-->
-<!--            <p>Skin color: {{ data.skin_color }}</p>-->
-<!--            <p>Eye color: {{ data.eye_color }}</p>-->
+            <p>Name: {{ data.name }}</p>
         </li>
     </ul>
 </template>
@@ -14,12 +10,17 @@
 export default {
     props: {
         fetchedData: {
-            type: Array,
+            type: Object,
             required: true
         }
     },
-    mounted() {
-        console.log('Data:', this.fetchedData);
-    }
 };
 </script>
+
+<style scoped>
+    .row{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+</style>
