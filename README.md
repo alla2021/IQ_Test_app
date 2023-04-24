@@ -16,7 +16,9 @@ Once you have the app running, you can take the IQ test by following these steps
 ## Screenshots
 
 Home page with burger menu:
-![iq-tests-1](https://user-images.githubusercontent.com/75502074/234056393-0e135c5e-5994-4629-ad4f-cd9b6b06a026.png)
+![2023-04-24 19_21_13-Vue App](https://user-images.githubusercontent.com/75502074/234057345-618d1705-c551-437c-80ef-ceca487e9ddd.png)
+![2023-04-24 19_21_30-Vue App](https://user-images.githubusercontent.com/75502074/234057361-733d1942-be5e-4023-9e03-07ae595543b3.png)
 
 Sample question page:
-![iq-test-2](https://user-images.githubusercontent.com/75502074/234056404-759cbd9d-084e-4e37-8f94-c70139987114.png)
+![2023-04-24 19_21_54-Vue App](https://user-images.githubusercontent.com/75502074/234057365-509f6c1f-9523-4282-ac1e-a23d35d675cd.png)
+![2023-04-24 19_22_43-Vue App](https://user-images.githubusercontent.com/75502074/234057509-85cf207a-f72c-4c96-8108-085a90afc111.png)
