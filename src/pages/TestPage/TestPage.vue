@@ -125,4 +125,12 @@ export default {
 
 <style scoped lang="scss">
     @import "@/pages/TestPage/test-page.scss";
+    .data-block{
+        margin: 20px 0;
+        background-color: #FFC700;
+        font-size: 22px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
 </style>
