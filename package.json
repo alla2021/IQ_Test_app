@@ -1,10 +1,12 @@
 {
   "name": "iq-test-app",
+  "homepage": "https://alla2021.github.io/IQ_Test_app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "deploy": "vue-cli-service build && gh-pages -d dist",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
