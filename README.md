@@ -1,6 +1,8 @@
 # IQ Test App using Vue.js
 This is an IQ test app built using Vue.js. The app generates a quiz consisting of 10 questions and displays a call button for the user's IQ results.
 
+https://incomparable-sorbet-4d5b1c.netlify.app
+
 ### Run project
 ```
 npm run serve
