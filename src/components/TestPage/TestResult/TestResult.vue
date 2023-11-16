@@ -1,6 +1,6 @@
 <template>
-    <div class="result-block-block">
-        <div class="result-block-block__container">
+    <div class="result-block">
+        <div class="result-block__container">
             <img src="@/assets/images/lightning-r.png" alt="lightning" class="result-block__img-right"/>
             <img src="@/assets/images/lightning-l.png" alt="lightning" class="result-block__img-left"/>
             <h2 class="result-block__title">Ваш результат рассчитан:</h2>

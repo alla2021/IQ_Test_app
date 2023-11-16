@@ -5,6 +5,9 @@
             <h1 class="intro__title">тест на определение IQ</h1>
         </div>
         <div class="intro__row">
+            <img class="intro__logo-img" src="../../../assets/images/logo.png" alt="logo">
+        </div>
+        <div class="intro__row">
             <IQTestButton @click="onButtonClick">пройти тест</IQTestButton>
             <div class="intro__content">
             <span class="text-yellow">и получите рекомендации
@@ -23,4 +26,9 @@ import ScrollLink from "@/components/MainPage/ScrollLink/ScrollLink.vue";
 
 <style scoped lang="scss">
     @import "@/components/MainPage/IntroApp/intro-app.scss";
+
+    .container {
+        max-width: 650px;
+        margin: 0 auto;
+    }
 </style>

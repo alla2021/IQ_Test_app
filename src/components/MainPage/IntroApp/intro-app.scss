@@ -1,6 +1,6 @@
 .intro {
   min-height: calc(100vh - 46px);
-  background-image: url('../../../assets/images/intro-bg.png');
+  background-image: url('../../../assets/images/rain_bg.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position:center;
@@ -17,6 +17,10 @@
     letter-spacing: 0.05em;
     font-family: "PT Serif", sans-serif;
     margin: 0 auto;
+  }
+
+  &__logo-img {
+    width: 200px;
   }
 
   &__title {

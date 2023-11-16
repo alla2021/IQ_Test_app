@@ -1,6 +1,7 @@
 <template>
     <footer class="app-footer">
-        <div class="app-footer__content">
+        <div class="container">
+            <div class="app-footer__content">
             <img class="app-footer__img-right" src="../../../assets/images/lightning-r.png" alt="lightning">
             <img class="app-footer__img-left" src="../../../assets/images/lightning-l.png" alt="lightning">
             <div class="app-footer__description">Прохождение теста займет у вас не более <span class="text-yellow">12 минут</span>, а его <span class="text-bold">результаты</span> вы сможете <span class="text-yellow">использовать всю жизнь.</span>
@@ -10,6 +11,7 @@
         </div>
         <div class="app-footer__copyright">
             <span>&#169; 2019</span>
+        </div>
         </div>
     </footer>
 </template>

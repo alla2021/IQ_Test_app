@@ -1,8 +1,8 @@
 <template>
     <HeaderApp />
-    <main >
         <section v-if="!isLoading && !showResult" class="task">
-            <RangeProgress :progress="currentQuestionIndex + 1" :maxProgress="questions.length" />
+            <div class="task__container">
+                <RangeProgress :progress="currentQuestionIndex + 1" :maxProgress="questions.length" />
             <div class="task__wrapper">
                 <h3 class="task__title">{{ questions[currentQuestionIndex].question }}</h3>
                 <div v-if="questions[currentQuestionIndex].img"  class="task__image-wrapper">
@@ -34,17 +34,11 @@
                     </div>
                 </div>
             <button class="next-button" @click="nextQuestion" :disabled="isButtonDisabled">Далее</button>
+            </div>
         </section>
-        <div v-if="isLoading">
-            <LoaderPage />
-        </div>
-        <div v-if="showResult && !isLoading">
-            <TestResult :results="results" />
-        </div>
-    </main>
-    <div v-if="showResult && !isLoading">
-        <FooterTestPage/>
-    </div>
+        <LoaderPage v-if="isLoading" />
+        <TestResult v-if="showResult && !isLoading" :results="results" />
+        <FooterTestPage v-if="showResult && !isLoading" />
 </template>
 
 <script>

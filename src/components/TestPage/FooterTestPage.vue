@@ -1,13 +1,11 @@
 <template>
     <footer class="footer">
-        <div class="container">
             <p class="footer-copy">
                 TERMENI SI CONDITII: ACESTA ESTE UN SERVICIU DE DIVERTISMENT. PRIN FOLOSIREA LUI DECLARATI
                 CA TERMENI SI CONDITII: ACESTA ESTE UN SERVICIU DE DIVERTISMENT. PRIN FOLOSIREA LUI DECLARATI
                 CA
                 AVETI 18 ANI IMPLINITI,
                 AVETI 18 ANI IMPLINITI, </p>
-        </div>
     </footer>
 </template>
 

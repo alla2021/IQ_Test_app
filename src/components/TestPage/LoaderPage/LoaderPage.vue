@@ -1,6 +1,6 @@
 <template>
     <section class="loader-page">
-        <h4 class="loader-page__title">Обработка результатов</h4>
+            <h4 class="loader-page__title">Обработка результатов</h4>
         <div class="loader">
             <div class="loader__spin"></div>
         </div>

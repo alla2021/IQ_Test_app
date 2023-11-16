@@ -1,6 +1,6 @@
 <template>
   <section class="blockquote-block">
-        <div class="blockquote-block__content">
+      <div class="blockquote-block__content">
             <img src="../../../assets/images/quote-l.svg" alt="quote-left" class="blockquote-block__quote blockquote-block__quote-left">
             <blockquote class="blockquote-block__text" >
                 Профессиональный IQ-тест позволяет не только определить коэффициент вашего интеллекта, но и выработать список рекомендаций для повышения этого показателя.

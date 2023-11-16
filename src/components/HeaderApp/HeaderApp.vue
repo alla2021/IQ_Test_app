@@ -1,6 +1,6 @@
 <template>
     <header>
-        <nav class="navbar">
+            <nav class="navbar">
             <div class="navbar__container nav-container">
                 <button class="burger-menu" @click="isOpen = true" :class="{ active: isOpen }">
                     <span class="burger-menu__item"></span>
@@ -74,5 +74,5 @@ export default {
 </script>
 
 <style lang="scss">
-    @import "@/components/HeaderApp/header-app.scss";
+    @import "@/components/HeaderApp/header-app.scss";   
 </style>
