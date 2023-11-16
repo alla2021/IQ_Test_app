@@ -13,17 +13,26 @@ Once you have the app running, you can take the IQ test by following these steps
 ## Screenshots
 
 - Home page with burger menu:
-
-![2023-04-24 19_21_13-Vue App](https://user-images.githubusercontent.com/75502074/234057345-618d1705-c551-437c-80ef-ceca487e9ddd.png)
+- 
+![Screenshot 2023-11-16 150348](https://github.com/alla2021/IQ_Test_app/assets/75502074/796c6a6b-41f2-4343-b0bd-a841fea9ea4a)
 
 - Burger menu:
 
-![2023-04-24 19_21_30-Vue App](https://user-images.githubusercontent.com/75502074/234057361-733d1942-be5e-4023-9e03-07ae595543b3.png)
+![Screenshot 2023-11-16 150401](https://github.com/alla2021/IQ_Test_app/assets/75502074/624cdd64-851b-4bb5-9206-08098adbe2d1)
 
 - Sample question page:
 
-![2023-04-24 19_21_54-Vue App](https://user-images.githubusercontent.com/75502074/234057365-509f6c1f-9523-4282-ac1e-a23d35d675cd.png)
+![Screenshot 2023-11-16 150643](https://github.com/alla2021/IQ_Test_app/assets/75502074/e2e7c4ec-2433-413f-9359-77c6296af704)
 
 - Sample question page:
 
-![2023-04-24 19_22_43-Vue App](https://user-images.githubusercontent.com/75502074/234057509-85cf207a-f72c-4c96-8108-085a90afc111.png)
+![Screenshot 2023-11-16 150654](https://github.com/alla2021/IQ_Test_app/assets/75502074/ac169fc4-50bf-4c49-9e0d-4131fa45d11a)
+
+- Loading page:
+  
+![Screenshot 2023-11-16 150716](https://github.com/alla2021/IQ_Test_app/assets/75502074/4a5b262b-5695-4f8c-8690-7394e7d04589)
+
+- Results page:
+  
+![Screenshot 2023-11-16 150725](https://github.com/alla2021/IQ_Test_app/assets/75502074/ee51a3fd-f8a7-4852-93bc-9078dd3d95ab)
+
